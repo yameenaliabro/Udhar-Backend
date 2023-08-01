@@ -4,11 +4,12 @@ import { Request, Response } from "../../helpers";
 import { wrap } from "../../wrappers";
 
 type CreateCustomerBody = {
-    username: string,
+    fullname: string,
     email: string,
-    password: string,
     image: string,
-    role: string
+    address: string,
+    phonenumber: number
+
 }
 
 const createCustomerSchemas = {
@@ -22,8 +23,8 @@ const createCustomerSchemas = {
 }
 
 const createCustomerApi = async (req: Request<CreateCustomerBody>, res: Response) => {
-    const { email, image, password, role, username } = req.body
-    const createcustomer = await addCustomer({ email, image, password, role, username })
+    const { email, image, fullname, address, phonenumber } = req.body
+    const createcustomer = await addCustomer({ email, image, fullname, address, phonenumber })
     res.send(createcustomer)
 
 }

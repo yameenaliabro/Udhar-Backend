@@ -8,7 +8,7 @@ const ProductSchema = new Schema<ProductSchemaType>({
     price: { type: Number, required: true },
     rating: { type: Number, required: true },
     user: { type: Schema.Types.ObjectId, ref: "User" }
-})
+}, { timestamps: true })
 
 const ProductModel = mongoose.model("Product", ProductSchema)
 export default ProductModel

@@ -1,15 +1,18 @@
 import { CustomerModel } from "../../models";
 import { CustomerProps } from "../../types";
+import { CreateCustomers } from "./dto";
 
-export const addCustomer = async (customer: CustomerProps) => {
-    const { email, image, password, role, username } = customer
+export const addCustomer = async (customer: CreateCustomers) => {
+    const { email, image, fullname, address, phonenumber } = customer
+
     const customerdata = new CustomerModel({
-        username,
+        fullname,
         email,
-        password,
         image,
-        role,
+        address,
+        phonenumber
     })
+
     const createcustomer = customerdata.save()
     return createcustomer
 }

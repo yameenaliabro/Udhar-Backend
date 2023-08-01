@@ -4,6 +4,7 @@ import cors from "cors"
 import { PORT } from "./config"
 import routes from "./routes"
 import apiErrorHandler from "./middlewares/apiErrorHandler"
+
 const app = express()
     .use(express.json())
     .use(cors())

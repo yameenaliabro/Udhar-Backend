@@ -35,4 +35,4 @@ export default wrap(CreateProductApi, {
     catch: true,
     authedOnly: true,
     validate: CreateProductSchemas
-})
+})  

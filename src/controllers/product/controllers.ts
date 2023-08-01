@@ -10,26 +10,26 @@ export const createProduct = async (props: CreateProductType) => {
         description,
         price,
         rating,
-        user_id,
+        user: user_id,
         image,
     })
     const createproduct = await products.save()
-    return createProduct
+    return createproduct
 }
 
 export const getProduct = async (props: GetProductType) => {
     const { user_id, id } = props
-    const product = await ProductModel.find(omitUndefined({ user: user_id, id: id }))
-    if (product) {
-        if (product[0]) {
-            return product[0]
+    const products = await ProductModel.find(omitUndefined({ user: user_id, id: id }))
+    if (id) {
+        if (products[0]) {
+            return products[0]
         }
         else {
-            throw new ApiError(40, "product not Found!")
+            throw new ApiError(404, "product not Found!")
         }
     }
     else {
-        return product
+        return products
     }
 }
 

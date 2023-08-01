@@ -1,7 +1,7 @@
 export type CustomerProps = {
-    username: string,
+    fullname: string,
     email: string,
-    password: string,
     image: string,
-    role: string
+    address: string,
+    phonenumber: string
 }
