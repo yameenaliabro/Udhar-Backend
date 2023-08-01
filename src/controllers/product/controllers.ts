@@ -35,10 +35,14 @@ export const getProduct = async (props: GetProductType) => {
 
 export const deletProduct = async (props: DeleteProductType) => {
     const { _id } = props
-    const product = await ProductModel.findByIdAndRemove(_id)
+    const product = await ProductModel.findById(_id)
     if (!product) {
         throw new ApiError(401, "product is not deleted")
     }
+    product.deleteOne()
+    return { sucess: true }
+
+
 }
 
 export const updateProduct = async (props: UpdateProductType) => {
@@ -47,6 +51,6 @@ export const updateProduct = async (props: UpdateProductType) => {
     if (!product) {
         throw new ApiError(404, "this product not found")
     }
-    await product.updateOne()
+    await product.updateOne(product)
     return { sucess: true }
 }

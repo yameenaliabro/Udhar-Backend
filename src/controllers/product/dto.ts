@@ -18,7 +18,7 @@ export type UpdateProductType = {
 }
 
 export type DeleteProductType = {
-    _id: Types.ObjectId
+    _id: string
 }
 
 export type GetProductType = {
