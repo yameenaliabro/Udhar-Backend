@@ -2,12 +2,12 @@ import express from "express"
 import getProduct from "./get-product"
 import createProduct from "./create-product"
 import updateProduct from "./update-product"
-import { deletProduct } from "../../controllers/product"
+import deleteProduct from "./delete-product"
 
 const productroutes = express()
     .get("/", getProduct)
     .post("/", createProduct)
     .patch("/", updateProduct)
-    .delete("/", deletProduct)
+    .delete("/", deleteProduct)
 
 export default productroutes

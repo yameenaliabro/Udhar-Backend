@@ -3,7 +3,7 @@ import cunstomerroute from "./customer"
 import productroutes from "./product"
 
 const routes = express()
-    .use("/customer", cunstomerroute)
-    .use("/product", productroutes)
+    .use("/customers", cunstomerroute)
+    .use("/products", productroutes)
 
 export default routes

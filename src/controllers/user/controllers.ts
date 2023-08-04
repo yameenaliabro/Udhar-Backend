@@ -26,4 +26,4 @@ export async function checkUser(firebaseUser: UserRecord) {
     })
 
     return user;
-}
+}   

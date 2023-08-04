@@ -4,11 +4,12 @@ import { ProductModel } from "../../models";
 import { CreateProductType, DeleteProductType, GetProductType, UpdateProductType } from "./dto";
 
 export const createProduct = async (props: CreateProductType) => {
-    const { title, description, price, rating, user_id, image } = props
+    const { title, description, purchaseprice, sellprice, rating, user_id, image } = props
     const products = new ProductModel({
         title,
         description,
-        price,
+        sellprice,
+        purchaseprice,
         rating,
         user: user_id,
         image,
@@ -33,16 +34,15 @@ export const getProduct = async (props: GetProductType) => {
     }
 }
 
-export const deletProduct = async (props: DeleteProductType) => {
+export const deleteProduct = async (props: DeleteProductType) => {
     const { _id } = props
+    console.log(_id)
     const product = await ProductModel.findById(_id)
     if (!product) {
         throw new ApiError(401, "product is not deleted")
     }
     product.deleteOne()
     return { sucess: true }
-
-
 }
 
 export const updateProduct = async (props: UpdateProductType) => {
@@ -51,6 +51,6 @@ export const updateProduct = async (props: UpdateProductType) => {
     if (!product) {
         throw new ApiError(404, "this product not found")
     }
-    await product.updateOne(product)
+    await product.updateOne(restprops)
     return { sucess: true }
 }

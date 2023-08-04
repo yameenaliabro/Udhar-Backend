@@ -1,10 +1,7 @@
-import { type } from "os";
 import { Request, Response } from "../../helpers";
 import { updateProduct } from "../../controllers/product";
 import { wrap } from "../../wrappers";
 import Joi from "joi";
-import { join } from "path";
-
 type updateProductQuery = {
     id: string
 }
@@ -12,21 +9,23 @@ type updateProductQuery = {
 type updateProductBody = {
     title?: string,
     description?: string,
-    price?: number,
+    purchaseprice?: string,
+    sellprice?: string
     image?: string,
-    rating?: number
+    rating?: number,
 }
 
 const UpdateProductSchemas = {
     reqBody: Joi.object({
         title: Joi.string().optional(),
         description: Joi.string().optional(),
-        price: Joi.number().optional(),
+        purchaseprice: Joi.number().optional(),
+        sellprice: Joi.number().optional(),
         rating: Joi.number().optional(),
         image: Joi.string().optional(),
     }),
     reqQuery: Joi.object({
-        id: Joi.object().required()
+        id: Joi.string().required()
     })
 }
 

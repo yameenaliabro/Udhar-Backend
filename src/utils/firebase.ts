@@ -12,4 +12,4 @@ export const firebaseApp = initializeApp({
         clientEmail: ServiceAccount.client_email
     })
 });
-export const firebaseAuth = getAuth(firebaseApp);
+export const firebaseAuth = getAuth(firebaseApp);   

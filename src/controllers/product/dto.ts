@@ -4,9 +4,10 @@ export type CreateProductType = {
     user_id: Types.ObjectId
     title: string,
     description: string,
-    price: number,
     rating: number,
-    image: string
+    image: string,
+    purchaseprice: number,
+    sellprice: number
 }
 
 export type UpdateProductType = {
@@ -14,7 +15,7 @@ export type UpdateProductType = {
     title?: string,
     description?: string,
     price?: number,
-    reting?: number,
+    rating?: number,
 }
 
 export type DeleteProductType = {
@@ -22,6 +23,6 @@ export type DeleteProductType = {
 }
 
 export type GetProductType = {
-    user_id: Types.ObjectId,
+    user_id?: Types.ObjectId,
     id?: string
 }
