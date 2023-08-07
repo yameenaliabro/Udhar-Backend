@@ -2,7 +2,7 @@ import mongoose, { Schema, Types } from "mongoose";
 import { TrasactionsSchemaType } from "../types";
 
 const TransactionSchema = new Schema<TrasactionsSchemaType>({
-    customer: { type: Schema.Types.ObjectId, ref: "Customer" },
+    customer: { type: Schema.Types.ObjectId, ref: "Customer", required: true },
     date: { type: Date, default: Date.now },
     purchasedProducts: {
         type: [{
@@ -14,11 +14,12 @@ const TransactionSchema = new Schema<TrasactionsSchemaType>({
             quantity: {
                 type: Number,
                 required: true
-            }
+            },
         }],
         required: true
     }
-}, { timestamps: true })
+
+}, { timestamps: true },)
 
 const TransactionModel = mongoose.model("Transaction", TransactionSchema)
 

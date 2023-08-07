@@ -2,7 +2,7 @@ import { ApiError } from "../../helpers";
 import UserModel from "../../models/user";
 import { firebaseAuth } from "../../utils";
 import { UserRecord } from 'firebase-admin/auth'
-
+import { getAuth } from "firebase/auth"
 export async function verifyToken(token: string) {
     const firebaseDecodedToken = await firebaseAuth.verifyIdToken(token);
     if (!firebaseDecodedToken) throw new ApiError(404, 'User not found!');
@@ -26,4 +26,4 @@ export async function checkUser(firebaseUser: UserRecord) {
     })
 
     return user;
-}   
+}

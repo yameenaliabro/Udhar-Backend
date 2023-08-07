@@ -7,7 +7,7 @@ const ProductSchema = new Schema<ProductSchemaType>({
     image: { type: String, required: true },
     purchaseprice: { type: Number, required: true },
     rating: { type: Number, required: true },
-    user: { type: Schema.Types.ObjectId, ref: "Users" },
+    user: { type: Schema.Types.ObjectId, ref: "User" },
     sellprice: { type: Number, required: true }
 }, { timestamps: true })
 

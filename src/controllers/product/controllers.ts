@@ -36,7 +36,6 @@ export const getProduct = async (props: GetProductType) => {
 
 export const deleteProduct = async (props: DeleteProductType) => {
     const { _id } = props
-    console.log(_id)
     const product = await ProductModel.findById(_id)
     if (!product) {
         throw new ApiError(401, "product is not deleted")
