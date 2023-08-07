@@ -4,7 +4,6 @@ export type TrasactionCreateType = {
     customer: string
     purchasedProducts: {
         product: string;
-        quantity: number,
     }[],
     date: Date
 }

@@ -11,10 +11,6 @@ const TransactionSchema = new Schema<TrasactionsSchemaType>({
                 ref: "Product",
                 required: true
             },
-            quantity: {
-                type: Number,
-                required: true
-            },
         }],
         required: true
     }

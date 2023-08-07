@@ -7,5 +7,6 @@ export type ProductSchemaType = {
     sellprice: number,
     rating: number,
     image: string,
-    user: Types.ObjectId
+    user: Types.ObjectId,
+    count: number
 }

@@ -4,8 +4,6 @@ export type TrasactionsSchemaType = {
     customer: Types.ObjectId
     purchasedProducts: {
         product: Types.ObjectId;
-        quantity: number,
-        price: number
     }[],
     date: Date
 }

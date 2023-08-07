@@ -9,7 +9,6 @@ const createTrasationSchemas = {
         purchasedProducts: Joi.array().items(
             Joi.object({
                 product: Joi.string().required(),
-                quantity: Joi.number().integer().min(1).required(),
             })
         ).min(1).required(),
         date: Joi.date().optional(),
@@ -20,7 +19,6 @@ type CreateTransationBodType = {
     customer: string
     purchasedProducts: {
         product: string
-        quantity: number,
     }[],
     date: Date
 }

@@ -6,24 +6,24 @@ import Joi from "joi";
 
 
 type getTransationQuery = {
-    id?: Types.ObjectId
+    _id?: Types.ObjectId
 }
 
 const getTransationSchemas = {
     reqQuery: Joi.object({
-        id: Joi.string().optional()
+        _id: Joi.string().optional()
     }),
-    reqBody: Joi.object().optional()
+    reqBody: Joi.object().length(0)
 }
 
 const GetTransationApi = async (req: Request<getTransationQuery>, res: Response) => {
-    const { id } = req.query
-    const gettransation = await getTransation(id)
+    const { _id } = req.query
+    const gettransation = await getTransation(_id)
     res.send(gettransation)
 }
 
 export default wrap(GetTransationApi, {
     catch: true,
-    authedOnly: false,
+    authedOnly: true,
     validate: getTransationSchemas
 })

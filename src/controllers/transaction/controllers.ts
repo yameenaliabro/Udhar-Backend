@@ -15,7 +15,7 @@ export const createTransation = async (props: TrasactionCreateType) => {
     return transactions
 }
 
-export const getTransation = async () => {
+export const getTransation = async (props: GetTransationType) => {
     const gettransation = await TransactionModel.find({})
         .populate("customer").
         populate("purchasedProducts.product")
