@@ -9,4 +9,4 @@ export type ProductSchemaType = {
     image: string,
     user: Types.ObjectId,
     count: number
-}
+}   

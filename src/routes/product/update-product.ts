@@ -3,7 +3,7 @@ import { updateProduct } from "../../controllers/product";
 import { wrap } from "../../wrappers";
 import Joi from "joi";
 type updateProductQuery = {
-    id: string
+    _id: string
 }
 
 type updateProductBody = {
@@ -25,13 +25,13 @@ const UpdateProductSchemas = {
         image: Joi.string().optional(),
     }),
     reqQuery: Joi.object({
-        id: Joi.string().required()
+        _id: Joi.string().required()
     })
 }
 
 const UpdateProductApi = async (req: Request<updateProductBody, updateProductQuery>, res: Response) => {
-    const { id } = req.query
-    const updateproduct = await updateProduct({ _id: id, ...req.body })
+    const { _id } = req.query
+    const updateproduct = await updateProduct({ _id, ...req.body })
     res.send(updateproduct)
 }
 
